@@ -1,0 +1,186 @@
+{
+  "title": "交叉验证 · A/B 比对与仲裁",
+  "at": "2026-11-16T12:13:20.717Z",
+  "A": {
+    "tester": "A",
+    "method": "规格驱动黑盒 / IPC 契约 + 外部副作用",
+    "pass": 13,
+    "fail": 0,
+    "na": 2
+  },
+  "B": {
+    "tester": "B",
+    "method": "实现驱动白盒 + 故障注入 / 源码审查",
+    "pass": 15,
+    "fail": 0,
+    "na": 0
+  },
+  "matrix": [
+    {
+      "id": "K01",
+      "name": "添加服务与持久化",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "快照=true / 落盘=true / 回读=true",
+      "evidenceB": "非法对象被静默写入=0/3 / 落盘污染=false / 回读 errors=0 / 写路径强制预检=false"
+    },
+    {
+      "id": "K02",
+      "name": "模板库扫描与异常标红",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "9模板=true / 非法标红=true / 128KB上限=true",
+      "evidenceB": "非法模板识别=4/4 / 重复id=true / 128KB=true"
+    },
+    {
+      "id": "K03",
+      "name": "模板驱动新增服务",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "创建成功=true / 占位符已展开=true / 命令=rs\\lzp\\AppData\\Local\\Temp\\devstack-A-cGy972/redis-server.exe",
+      "evidenceB": "占位符清空=true / 端口与命令=true / id唯一=true / 路径规范化=true"
+    },
+    {
+      "id": "K04",
+      "name": "新建分组与解散",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "组存在=true / 连续=true / 归属=true / 解散清 gid=true",
+      "evidenceB": "幽灵成员被过滤=true / 幽灵组规整=true / 解散清理=true"
+    },
+    {
+      "id": "K05",
+      "name": "拖拽顺序写回",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "块no-op=0(顺序未变=true) / 非法=-1 / 成员自身=0 / 重排=1 → a-g2,a-g1",
+      "evidenceB": "抛异常=否 / 返回值=[-1,-1,-1,0] / 顺序未污染=true"
+    },
+    {
+      "id": "K06",
+      "name": "稳定态守卫",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "starting守卫=true(starting) / stopping守卫=true(stopping) / 未反向启动=true",
+      "evidenceB": "拦截=6/6（starting/stopping/owner 各 toggle+restart）"
+    },
+    {
+      "id": "K07",
+      "name": "全部启停编排",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "并行=5 串行链=1 busy跳过=1/1 / 全启=true 全停=true busy未被拉起=true",
+      "evidenceB": "两次调用均受理=false / 第二项拉起早于第一项就绪=false（w2=1794831195712 h1=1794831195708）/ startAll去重守卫=true / 事件=start:→watch:b-seq1→hit:b-seq1→start:→watch:b-seq2→hit:b-seq2"
+    },
+    {
+      "id": "K08",
+      "name": "组级串行与真实进程",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "完成驱动(第二项SPAWN≥第一项LISTEN)=true(间隔 732ms) / 倒序=true / 组启停=true,true / 真实Redis=PASS(就绪=true 起=true 态=true 停=true) / 事件=4",
+      "evidenceB": "完成驱动(第二项watch≥第一项hit)=true / 倒序链=true / 事件=start→watch:b-seq1→hit:b-seq1→start→watch:b-seq2→hit:b-seq2"
+    },
+    {
+      "id": "K09",
+      "name": "端口冲突拦截",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "外部LISTEN=true / 归属标注=true(node.exe PID 2880) / 状态=running / 外部托管=true / PID指向夹具进程=true",
+      "evidenceB": "确认计划列出冲突=true / 冲突项未启动=true / 冲突链级终止代码=true"
+    },
+    {
+      "id": "K10",
+      "name": "配置损坏容错",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "抛异常=否 / 结构化错误=true / 现场备份=true / 恢复后可读=true",
+      "evidenceB": "读损坏文件抛异常=否 / 损坏配置现场备份=true 错误可见=true / Store丢弃errors=false / 固定.tmp并发风险=false"
+    },
+    {
+      "id": "K11",
+      "name": "活动日志",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "已执行十余次启停/调度动作，活动日志条数=47",
+      "evidenceB": "活动条数 12→13 / store.activity 落库=true / 全仓 pushActivity 调用点=logs.ts,store.ts"
+    },
+    {
+      "id": "K12",
+      "name": "启动失败状态收敛",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "超时后状态=unknown / 仍被守卫拒绝=false / 复点结果={\"ok\":true}",
+      "evidenceB": "动作中=starting / 超时后=unknown / 复点={\"ok\":true} / 超时分支写终态=true（心跳已禁用，排除竞态掩盖）"
+    },
+    {
+      "id": "K13",
+      "name": "模板读取路径边界",
+      "A": "PASS",
+      "B": "PASS",
+      "kind": "AGREE",
+      "evidenceA": "越界相对路径=..\\..\\devstack-A-secret.txt / 读到目录外内容=false / 返回 ok=false / 合法读取=true",
+      "evidenceB": "前缀绕过删除目录外文件=false / read-template-file无边界=false / open-url协议白名单=true / setWindowOpenHandler白名单=true / shell:false=true / preload白名单=true"
+    },
+    {
+      "id": "K14",
+      "name": "国际化 9 语覆盖",
+      "A": "NA",
+      "B": "PASS",
+      "kind": "COVERAGE_GAP",
+      "evidenceA": "黑盒无窗口/DOM 可观察，无法判定；此检查点由测试员工 B 与第三方 i18n 测试覆盖",
+      "evidenceB": "词典=671键×9语完整=true / 文案样本=60 / 6语种残留中文=0 / 例： / 切回简体=true"
+    },
+    {
+      "id": "K15",
+      "name": "macOS/Linux 分支正确性",
+      "A": "NA",
+      "B": "PASS",
+      "kind": "COVERAGE_GAP",
+      "evidenceA": "当前仅 win32 运行时，无法观察 POSIX 分支；由 B 的源码审查覆盖，真机复验另列",
+      "evidenceB": "负PID杀组=true / execAndWait为detached=true / 分支矛盾=false / sh解释器=true / lsof=true / appData跨平台=true / presets平台分支=true"
+    }
+  ],
+  "stats": {
+    "total": 15,
+    "agree": 13,
+    "conflict": 0,
+    "gap": 2,
+    "agreeRate": "86.7%",
+    "agreePass": 13,
+    "agreeFail": 0
+  },
+  "arbitrations": [
+    {
+      "id": "K14",
+      "A": "NA",
+      "B": "PASS",
+      "third": "B_VALID",
+      "evidence": "词典内整句键 en 翻译成功=40/40 / 引擎正常=true / 拼接文案实测「过滤日志关键字」→「Filter log keywords」",
+      "truth": "PASS",
+      "note": "A 方法论盲区，由 B 补位；第三方确认 B 的判定方法有效"
+    },
+    {
+      "id": "K15",
+      "A": "NA",
+      "B": "PASS",
+      "third": "B_VALID",
+      "evidence": "killChildTree 负 PID=true / execAndWait detached=true / 当前运行时 win32（POSIX 分支仅静态可证，需 macOS/Linux 真机复验）",
+      "truth": "PASS",
+      "note": "A 方法论盲区，由 B 补位；第三方确认 B 的判定方法有效"
+    }
+  ],
+  "platform": "win32",
+  "node": "v22.22.2"
+}

@@ -1,0 +1,1123 @@
+{
+  "rules": [
+    "none",
+    "none",
+    "one",
+    "none",
+    "none",
+    "le1",
+    "one",
+    "one",
+    "one"
+  ],
+  "entries": {
+    "项": [
+      [
+        " 项",
+        " 项"
+      ],
+      [
+        " 項",
+        " 項"
+      ],
+      [
+        " item",
+        " items"
+      ],
+      [
+        " 件",
+        " 件"
+      ],
+      [
+        "개",
+        "개"
+      ],
+      [
+        " élément",
+        " éléments"
+      ],
+      [
+        " elemento",
+        " elementos"
+      ],
+      [
+        " Eintrag",
+        " Einträge"
+      ],
+      [
+        " item",
+        " itens"
+      ]
+    ],
+    "项错误": [
+      [
+        "项错误",
+        "项错误"
+      ],
+      [
+        "項錯誤",
+        "項錯誤"
+      ],
+      [
+        " error",
+        " errors"
+      ],
+      [
+        " 件のエラー",
+        " 件のエラー"
+      ],
+      [
+        " 개 오류",
+        " 개 오류"
+      ],
+      [
+        " erreur",
+        " erreurs"
+      ],
+      [
+        " error",
+        " errores"
+      ],
+      [
+        " Fehler",
+        " Fehler"
+      ],
+      [
+        " erro",
+        " erros"
+      ]
+    ],
+    "个脚本": [
+      [
+        "个脚本",
+        "个脚本"
+      ],
+      [
+        "個腳本",
+        "個腳本"
+      ],
+      [
+        " script",
+        " scripts"
+      ],
+      [
+        " スクリプト",
+        " スクリプト"
+      ],
+      [
+        " 스크립트",
+        " 스크립트"
+      ],
+      [
+        " script",
+        " scripts"
+      ],
+      [
+        " script",
+        " scripts"
+      ],
+      [
+        " Skript",
+        " Skripte"
+      ],
+      [
+        " script",
+        " scripts"
+      ]
+    ],
+    "行": [
+      [
+        "行",
+        " 行"
+      ],
+      [
+        "行",
+        " 行"
+      ],
+      [
+        " line",
+        " lines"
+      ],
+      [
+        "行",
+        " 行"
+      ],
+      [
+        "줄",
+        " 줄"
+      ],
+      [
+        " ligne",
+        " lignes"
+      ],
+      [
+        " línea",
+        " líneas"
+      ],
+      [
+        " Zeile",
+        " Zeilen"
+      ],
+      [
+        " linha",
+        " linhas"
+      ]
+    ],
+    "个组合": [
+      [
+        "个组合",
+        "个组合"
+      ],
+      [
+        "個組合",
+        "個組合"
+      ],
+      [
+        " group",
+        " groups"
+      ],
+      [
+        " グループ",
+        " グループ"
+      ],
+      [
+        " 개 그룹",
+        " 개 그룹"
+      ],
+      [
+        " groupe",
+        " groupes"
+      ],
+      [
+        " grupo",
+        " grupos"
+      ],
+      [
+        " Gruppe",
+        " Gruppen"
+      ],
+      [
+        " grupo",
+        " grupos"
+      ]
+    ],
+    "项服务 ·": [
+      [
+        "项服务 ·",
+        "项服务 ·"
+      ],
+      [
+        "項服務 ·",
+        "項服務 ·"
+      ],
+      [
+        " service ·",
+        " services ·"
+      ],
+      [
+        " 件のサービス · ",
+        " 件のサービス ·"
+      ],
+      [
+        " 개 서비스 · ",
+        " 개 서비스 ·"
+      ],
+      [
+        " service ·",
+        " services ·"
+      ],
+      [
+        " servicio ·",
+        " servicios ·"
+      ],
+      [
+        " Dienst ·",
+        " Dienste ·"
+      ],
+      [
+        " serviço ·",
+        " serviços ·"
+      ]
+    ],
+    "项端口冲突": [
+      [
+        " 项端口冲突",
+        " 项端口冲突"
+      ],
+      [
+        " 項端口衝突",
+        " 項端口衝突"
+      ],
+      [
+        " port conflict",
+        " port conflicts"
+      ],
+      [
+        " 件のポート競合",
+        " 件のポート競合"
+      ],
+      [
+        "건의 포트 충돌",
+        "건의 포트 충돌"
+      ],
+      [
+        " conflit de ports",
+        " conflits de ports"
+      ],
+      [
+        " conflicto de puerto",
+        " conflictos de puerto"
+      ],
+      [
+        " Portkonflikt",
+        " Portkonflikte"
+      ],
+      [
+        " conflito de porta",
+        " conflitos de porta"
+      ]
+    ],
+    "项待处理 · 点击查看": [
+      [
+        " 项待处理 · 点击查看",
+        " 项待处理 · 点击查看"
+      ],
+      [
+        " 項待處理 · 點擊查看",
+        " 項待處理 · 點擊查看"
+      ],
+      [
+        " pending item · click to view",
+        " pending items · click to view"
+      ],
+      [
+        " 件対応待ち · クリックで表示",
+        " 件対応待ち · クリックで表示"
+      ],
+      [
+        "개 대기 중 · 클릭하여 보기",
+        "개 대기 중 · 클릭하여 보기"
+      ],
+      [
+        " élément en attente · cliquer pour voir",
+        " éléments en attente · cliquer pour voir"
+      ],
+      [
+        " pendiente · clic para ver",
+        " pendientes · clic para ver"
+      ],
+      [
+        " ausstehend · Klick für Details",
+        " ausstehend · Klick für Details"
+      ],
+      [
+        " pendente · clique para ver",
+        " pendentes · clique para ver"
+      ]
+    ],
+    "项执行中（": [
+      [
+        " 项执行中（",
+        " 项执行中（"
+      ],
+      [
+        " 項執行中（",
+        " 項執行中（"
+      ],
+      [
+        " item still running (",
+        " items still running ("
+      ],
+      [
+        " 件が実行中（",
+        " 件が実行中（"
+      ],
+      [
+        " 개가 실행 중(",
+        " 개가 실행 중("
+      ],
+      [
+        " élément en cours d'exécution (",
+        " éléments en cours d'exécution ("
+      ],
+      [
+        " elemento en ejecución (",
+        " elementos en ejecución ("
+      ],
+      [
+        " Eintrag laufend (",
+        " Einträge laufend ("
+      ],
+      [
+        " item em execução (",
+        " itens em execução ("
+      ]
+    ],
+    "个成员 · 加入后排在组内末尾": [
+      [
+        " 个成员 · 加入后排在组内末尾",
+        " 个成员 · 加入后排在组内末尾"
+      ],
+      [
+        " 個成員 · 加入後排在組內末尾",
+        " 個成員 · 加入後排在組內末尾"
+      ],
+      [
+        " member · new members are appended to the end",
+        " members · new members are appended to the end"
+      ],
+      [
+        " 人のメンバー · 追加時はグループ末尾",
+        " 人のメンバー · 追加時はグループ末尾"
+      ],
+      [
+        "개 구성원 · 추가 시 그룹 끝에 배치",
+        "개 구성원 · 추가 시 그룹 끝에 배치"
+      ],
+      [
+        " membre · les nouveaux sont ajoutés à la fin",
+        " membres · les nouveaux sont ajoutés à la fin"
+      ],
+      [
+        " miembro · los nuevos se añaden al final",
+        " miembros · los nuevos se añaden al final"
+      ],
+      [
+        " Mitglied · neue werden am Ende angehängt",
+        " Mitglieder · neue werden am Ende angehängt"
+      ],
+      [
+        " membro · novos são adicionados ao fim",
+        " membros · novos são adicionados ao fim"
+      ]
+    ],
+    "项（": [
+      [
+        " 项（",
+        " 项（"
+      ],
+      [
+        " 項（",
+        " 項（"
+      ],
+      [
+        " item (",
+        " items ("
+      ],
+      [
+        " 件（",
+        " 件（"
+      ],
+      [
+        "개( ",
+        "개( "
+      ],
+      [
+        " élément (",
+        " éléments ("
+      ],
+      [
+        " elemento (",
+        " elementos ("
+      ],
+      [
+        " Eintrag (",
+        " Einträge ("
+      ],
+      [
+        " item (",
+        " itens ("
+      ]
+    ],
+    "项：": [
+      [
+        " 项：",
+        " 项："
+      ],
+      [
+        " 項：",
+        " 項："
+      ],
+      [
+        " item: ",
+        " items: "
+      ],
+      [
+        " 件: ",
+        " 件: "
+      ],
+      [
+        " 항목: ",
+        " 항목: "
+      ],
+      [
+        " élément : ",
+        " éléments : "
+      ],
+      [
+        " elemento: ",
+        " elementos: "
+      ],
+      [
+        " Eintrag: ",
+        " Einträge: "
+      ],
+      [
+        " item: ",
+        " itens: "
+      ]
+    ],
+    "项未执行": [
+      [
+        " 项未执行",
+        " 项未执行"
+      ],
+      [
+        " 項未執行",
+        " 項未執行"
+      ],
+      [
+        " item not executed",
+        " items not executed"
+      ],
+      [
+        " 件未実行",
+        " 件未実行"
+      ],
+      [
+        "개 미실행",
+        "개 미실행"
+      ],
+      [
+        " élément non exécuté",
+        " éléments non exécutés"
+      ],
+      [
+        " elemento sin ejecutar",
+        " elementos sin ejecutar"
+      ],
+      [
+        " Eintrag nicht ausgeführt",
+        " Einträge nicht ausgeführt"
+      ],
+      [
+        " item não executado",
+        " itens não executados"
+      ]
+    ],
+    "项启动中": [
+      [
+        " 项启动中",
+        " 项启动中"
+      ],
+      [
+        " 項啟動中",
+        " 項啟動中"
+      ],
+      [
+        " starting",
+        " starting"
+      ],
+      [
+        " 件起動中",
+        " 件起動中"
+      ],
+      [
+        "개 시작 중",
+        "개 시작 중"
+      ],
+      [
+        " en démarrage",
+        " en démarrage"
+      ],
+      [
+        " iniciando",
+        " iniciando"
+      ],
+      [
+        " im Start",
+        " im Start"
+      ],
+      [
+        " iniciando",
+        " iniciando"
+      ]
+    ],
+    "项停止中": [
+      [
+        " 项停止中",
+        " 项停止中"
+      ],
+      [
+        " 項停止中",
+        " 項停止中"
+      ],
+      [
+        " stopping",
+        " stopping"
+      ],
+      [
+        " 件停止中",
+        " 件停止中"
+      ],
+      [
+        " 개 중지 중",
+        " 개 중지 중"
+      ],
+      [
+        " en cours d'arrêt",
+        " en cours d'arrêt"
+      ],
+      [
+        " deteniéndose",
+        " deteniéndose"
+      ],
+      [
+        " werden gestoppt",
+        " werden gestoppt"
+      ],
+      [
+        " parando",
+        " parando"
+      ]
+    ],
+    "项启动中 · ": [
+      [
+        " 项启动中 · ",
+        " 项启动中 · "
+      ],
+      [
+        " 項啟動中 · ",
+        " 項啟動中 · "
+      ],
+      [
+        " starting · ",
+        " starting · "
+      ],
+      [
+        " 件起動中 · ",
+        " 件起動中 · "
+      ],
+      [
+        "개 시작 중 · ",
+        "개 시작 중 · "
+      ],
+      [
+        " en démarrage · ",
+        " en démarrage · "
+      ],
+      [
+        " iniciando · ",
+        " iniciando · "
+      ],
+      [
+        " im Start · ",
+        " im Start · "
+      ],
+      [
+        " iniciando · ",
+        " iniciando · "
+      ]
+    ],
+    "项运行中的服务：": [
+      [
+        " 项运行中的服务：",
+        " 项运行中的服务："
+      ],
+      [
+        " 項執行中的服務：",
+        " 項執行中的服務："
+      ],
+      [
+        " running service: ",
+        " running services: "
+      ],
+      [
+        " 件の実行中サービス：",
+        " 件の実行中サービス："
+      ],
+      [
+        " 개의 실행 중인 서비스：",
+        " 개의 실행 중인 서비스："
+      ],
+      [
+        " service en cours d'exécution : ",
+        " services en cours d'exécution : "
+      ],
+      [
+        " servicio en ejecución: ",
+        " servicios en ejecución: "
+      ],
+      [
+        " laufender Dienst: ",
+        " laufenden Dienste: "
+      ],
+      [
+        " serviço em execução: ",
+        " serviços em execução: "
+      ]
+    ],
+    "项已停止的服务：": [
+      [
+        " 项已停止的服务：",
+        " 项已停止的服务："
+      ],
+      [
+        " 項已停止的服務：",
+        " 項已停止的服務："
+      ],
+      [
+        " stopped service: ",
+        " stopped services: "
+      ],
+      [
+        " 件の停止済みサービス：",
+        " 件の停止済みサービス："
+      ],
+      [
+        " 개의 중지된 서비스：",
+        " 개의 중지된 서비스："
+      ],
+      [
+        " service arrêté : ",
+        " services arrêtés : "
+      ],
+      [
+        " servicio detenido: ",
+        " servicios detenidos: "
+      ],
+      [
+        " gestoppter Dienst: ",
+        " gestoppten Dienste: "
+      ],
+      [
+        " serviço parado: ",
+        " serviços parados: "
+      ]
+    ],
+    "项未分组组件并行安全停止；": [
+      [
+        " 项未分组组件并行安全停止；",
+        " 项未分组组件并行安全停止；"
+      ],
+      [
+        " 項未分組元件並行安全停止；",
+        " 項未分組元件並行安全停止；"
+      ],
+      [
+        " ungrouped component is stopped safely in parallel; ",
+        " ungrouped components are stopped safely in parallel; "
+      ],
+      [
+        " 件の未分類コンポーネントを並列で安全に停止します。",
+        " 件の未分類コンポーネントを並列で安全に停止します。"
+      ],
+      [
+        " 개의 미분류 컴포넌트를 병렬로 안전하게 중지합니다. ",
+        " 개의 미분류 컴포넌트를 병렬로 안전하게 중지합니다. "
+      ],
+      [
+        " composant non groupé est arrêté en parallèle en toute sécurité ; ",
+        " composants non groupés arrêtés en parallèle en toute sécurité ; "
+      ],
+      [
+        " componente no agrupado se detiene de forma segura en paralelo; ",
+        " componentes no agrupados se detienen de forma segura en paralelo; "
+      ],
+      [
+        " nicht gruppierte Komponente wird sicher parallel gestoppt; ",
+        " nicht gruppierte Komponenten werden sicher parallel gestoppt; "
+      ],
+      [
+        " componente não agrupado é parado com segurança em paralelo; ",
+        " componentes não agrupados são parados com segurança em paralelo; "
+      ]
+    ],
+    "项未分组组件并行发起；": [
+      [
+        " 项未分组组件并行发起；",
+        " 项未分组组件并行发起；"
+      ],
+      [
+        " 項未分組元件並行發起；",
+        " 項未分組元件並行發起；"
+      ],
+      [
+        " ungrouped component is started in parallel; ",
+        " ungrouped components are started in parallel; "
+      ],
+      [
+        " 件の未分類コンポーネントを並列で起動します。",
+        " 件の未分類コンポーネントを並列で起動します。"
+      ],
+      [
+        " 개의 미분류 컴포넌트를 병렬로 시작합니다. ",
+        " 개의 미분류 컴포넌트를 병렬로 시작합니다. "
+      ],
+      [
+        " composant non groupé démarré en parallèle ; ",
+        " composants non groupés démarrés en parallèle ; "
+      ],
+      [
+        " componente no agrupado se inicia en paralelo; ",
+        " componentes no agrupados se inician en paralelo; "
+      ],
+      [
+        " nicht gruppierte Komponente wird parallel gestartet; ",
+        " nicht gruppierte Komponenten werden parallel gestartet; "
+      ],
+      [
+        " componente não agrupado é iniciado em paralelo; ",
+        " componentes não agrupados são iniciados em paralelo; "
+      ]
+    ],
+    "项 / 未分组项与组合之间并行，组合内": [
+      [
+        " 项 / 未分组项与组合之间并行，组合内",
+        " 项 / 未分组项与组合之间并行，组合内"
+      ],
+      [
+        " 項 / 未分組項與組合之間並行，組合內",
+        " 項 / 未分組項與組合之間並行，組合內"
+      ],
+      [
+        " item / ungrouped items and groups run in parallel; within a group ",
+        " items / ungrouped items and groups run in parallel; within a group "
+      ],
+      [
+        " 件 / 未分類の項目とグループは並行、グループ内は",
+        " 件 / 未分類の項目とグループは並行、グループ内は"
+      ],
+      [
+        " 개 / 미분류 항목과 그룹은 병렬, 그룹 내부는",
+        " 개 / 미분류 항목과 그룹은 병렬, 그룹 내부는"
+      ],
+      [
+        " élément / les éléments non groupés et les groupes sont parallèles ; dans un groupe ",
+        " éléments / les éléments non groupés et les groupes sont parallèles ; dans un groupe "
+      ],
+      [
+        " elemento / los elementos no agrupados y los grupos se ejecutan en paralelo; dentro de un grupo ",
+        " elementos / los elementos no agrupados y los grupos se ejecutan en paralelo; dentro de un grupo "
+      ],
+      [
+        " Eintrag / nicht gruppierte Elemente und Gruppen laufen parallel; innerhalb einer Gruppe ",
+        " Einträge / nicht gruppierte Elemente und Gruppen laufen parallel; innerhalb einer Gruppe "
+      ],
+      [
+        " item / itens não agrupados e grupos rodam em paralelo; dentro de um grupo ",
+        " itens / itens não agrupados e grupos rodam em paralelo; dentro de um grupo "
+      ]
+    ],
+    "项（完整清单见主面板「端口冲突」）": [
+      [
+        " 项（完整清单见主面板「端口冲突」）",
+        " 项（完整清单见主面板「端口冲突」）"
+      ],
+      [
+        " 項（完整清單見主面板「端口衝突」）",
+        " 項（完整清單見主面板「端口衝突」）"
+      ],
+      [
+        " item (full list in the main Port conflicts popup)",
+        " items (full list in the main Port conflicts popup)"
+      ],
+      [
+        " 件（全一覧はメインの「ポート競合」）",
+        " 件（全一覧はメインの「ポート競合」）"
+      ],
+      [
+        "개(전체 목록은 메인 \"포트 충돌\")",
+        "개(전체 목록은 메인 \"포트 충돌\")"
+      ],
+      [
+        " élément (liste complète dans « Conflits de ports »)",
+        " éléments (liste complète dans « Conflits de ports »)"
+      ],
+      [
+        " elemento (lista completa en « Conflictos de puerto »)",
+        " elementos (lista completa en « Conflictos de puerto »)"
+      ],
+      [
+        " Eintrag (vollständige Liste in « Portkonflikte »)",
+        " Einträge (vollständige Liste in « Portkonflikte »)"
+      ],
+      [
+        " item (lista completa em « Conflitos de porta »)",
+        " itens (lista completa em « Conflitos de porta »)"
+      ]
+    ],
+    "个组合各自按组内从下到上倒序串行、等停止命令退出并确认端口释放后才停下一项，组合之间并行；不会强制杀进程。": [
+      [
+        " 个组合各自按组内从下到上倒序串行、等停止命令退出并确认端口释放后才停下一项，组合之间并行；不会强制杀进程。",
+        " 个组合各自按组内从下到上倒序串行、等停止命令退出并确认端口释放后才停下一项，组合之间并行；不会强制杀进程。"
+      ],
+      [
+        " 個組合各自按組內由下而上倒序串行、等停止命令退出並確認連接埠釋放後才停下一項，組合之間並行；不會強制殺行程。",
+        " 個組合各自按組內由下而上倒序串行、等停止命令退出並確認連接埠釋放後才停下一項，組合之間並行；不會強制殺行程。"
+      ],
+      [
+        " group runs in reverse order within the group, waiting for the stop command to exit and the port to be released before the next one; groups run in parallel; no process is force-killed.",
+        " groups each run in reverse order within the group, waiting for the stop command to exit and the port to be released before the next one; groups run in parallel; no process is force-killed."
+      ],
+      [
+        " 件のグループはグループ内で下から順に直列実行され、停止コマンドの終了とポート解放を確認してから次を停止します。グループ同士は並行です。プロセスの強制終了は行いません。",
+        " 件のグループはグループ内で下から順に直列実行され、停止コマンドの終了とポート解放を確認してから次を停止します。グループ同士は並行です。プロセスの強制終了は行いません。"
+      ],
+      [
+        " 개의 그룹은 그룹 안에서 아래에서 위로 역순으로 순차 실행되며, 중지 명령 종료와 포트 해제를 확인한 뒤 다음 항목을 중지합니다. 그룹끼리는 병렬 실행되며 프로세스를 강제 종료하지 않습니다.",
+        " 개의 그룹은 그룹 안에서 아래에서 위로 역순으로 순차 실행되며, 중지 명령 종료와 포트 해제를 확인한 뒤 다음 항목을 중지합니다. 그룹끼리는 병렬 실행되며 프로세스를 강제 종료하지 않습니다."
+      ],
+      [
+        " groupe s'exécute en série dans l'ordre inverse du groupe, en attendant la fin de la commande d'arrêt et la libération du port avant le suivant ; les groupes sont parallèles ; aucun processus n'est forcé à s'arrêter.",
+        " groupes s'exécutent en série dans l'ordre inverse du groupe, en attendant la fin de la commande d'arrêt et la libération du port avant le suivant ; les groupes sont parallèles ; aucun processus n'est forcé à s'arrêter."
+      ],
+      [
+        " grupo se ejecuta en serie de abajo arriba dentro de cada grupo, esperando a que salga el comando de parada y se libere el puerto antes del siguiente; los grupos se ejecutan en paralelo; no se fuerza la terminación de ningún proceso.",
+        " grupos se ejecutan en serie de abajo arriba dentro de cada grupo, esperando a que salga el comando de parada y se libere el puerto antes del siguiente; los grupos se ejecutan en paralelo; no se fuerza la terminación de ningún proceso."
+      ],
+      [
+        " Gruppe läuft innerhalb der Gruppe seriell von unten nach oben; erst nach Ende des Stop-Befehls und Freigabe des Ports folgt der nächste; die Gruppen laufen parallel; Prozesse werden nicht zwangsweise beendet.",
+        " Gruppen laufen innerhalb der Gruppe seriell von unten nach oben; erst nach Ende des Stop-Befehls und Freigabe des Ports folgt der nächste; die Gruppen laufen parallel; Prozesse werden nicht zwangsweise beendet."
+      ],
+      [
+        " grupo é executado em série de baixo para cima dentro do grupo, aguardando a saída do comando de parada e a liberação da porta antes do próximo; os grupos rodam em paralelo; nenhum processo é encerrado à força.",
+        " grupos são executados em série de baixo para cima dentro do grupo, aguardando a saída do comando de parada e a liberação da porta antes do próximo; os grupos rodam em paralelo; nenhum processo é encerrado à força."
+      ]
+    ],
+    "个组合各自按组内自上而下串行、等上一项就绪再启动下一项，组合之间并行。": [
+      [
+        " 个组合各自按组内自上而下串行、等上一项就绪再启动下一项，组合之间并行。",
+        " 个组合各自按组内自上而下串行、等上一项就绪再启动下一项，组合之间并行。"
+      ],
+      [
+        " 個組合各自按組內由上而下串行、等上一項就緒再啟動下一項，組合之間並行。",
+        " 個組合各自按組內由上而下串行、等上一項就緒再啟動下一項，組合之間並行。"
+      ],
+      [
+        " group runs top-down within the group, waiting for the previous one to be ready before starting the next; groups run in parallel.",
+        " groups each run top-down within the group, waiting for the previous one to be ready before starting the next; groups run in parallel."
+      ],
+      [
+        " 件のグループはグループ内で上から順に直列実行され、1件目が準備できた後に次を起動します。グループ同士は並行です。",
+        " 件のグループはグループ内で上から順に直列実行され、1件目が準備できた後に次を起動します。グループ同士は並行です。"
+      ],
+      [
+        " 개의 그룹은 그룹 안에서 위에서 아래 순서로 순차 실행되며, 앞 항목이 준비된 뒤 다음 항목을 시작합니다. 그룹끼리는 병렬 실행됩니다.",
+        " 개의 그룹은 그룹 안에서 위에서 아래 순서로 순차 실행되며, 앞 항목이 준비된 뒤 다음 항목을 시작합니다. 그룹끼리는 병렬 실행됩니다."
+      ],
+      [
+        " groupe s'exécute en série de haut en bas dans le groupe, en attendant que l'élément précédent soit prêt avant de lancer le suivant ; les groupes sont parallèles.",
+        " groupes s'exécutent en série de haut en bas dans le groupe, en attendant que l'élément précédent soit prêt avant de lancer le suivant ; les groupes sont parallèles."
+      ],
+      [
+        " grupo se ejecuta en serie de arriba abajo dentro del grupo, esperando a que el anterior esté listo antes de iniciar el siguiente; los grupos se ejecutan en paralelo.",
+        " grupos se ejecutan en serie de arriba abajo dentro del grupo, esperando a que el anterior esté listo antes de iniciar el siguiente; los grupos se ejecutan en paralelo."
+      ],
+      [
+        " Gruppe läuft innerhalb der Gruppe seriell von oben nach unten; erst wenn der vorherige bereit ist, folgt der nächste; die Gruppen laufen parallel.",
+        " Gruppen laufen innerhalb der Gruppe seriell von oben nach unten; erst wenn der vorherige bereit ist, folgt der nächste; die Gruppen laufen parallel."
+      ],
+      [
+        " grupo é executado em série de cima para baixo dentro do grupo, aguardando o anterior ficar pronto antes de iniciar o próximo; os grupos rodam em paralelo.",
+        " grupos são executados em série de cima para baixo dentro do grupo, aguardando o anterior ficar pronto antes de iniciar o próximo; os grupos rodam em paralelo."
+      ]
+    ],
+    "个成员会回到平铺列表，": [
+      [
+        " 个成员会回到平铺列表，",
+        " 个成员会回到平铺列表，"
+      ],
+      [
+        " 個成員會回到平鋪列表，",
+        " 個成員會回到平鋪列表，"
+      ],
+      [
+        " member returns to the flat list,",
+        " members return to the flat list,"
+      ],
+      [
+        " 人のメンバーがフラット一覧に戻り、",
+        " 人のメンバーがフラット一覧に戻り、"
+      ],
+      [
+        "개 구성원이 평면 목록으로 돌아가며,",
+        "개 구성원이 평면 목록으로 돌아가며,"
+      ],
+      [
+        " membre revient à la liste plate,",
+        " membres reviennent à la liste plate,"
+      ],
+      [
+        " miembro vuelve a la lista plana,",
+        " miembros vuelven a la lista plana,"
+      ],
+      [
+        " Mitglied kehrt in die flache Liste zurück,",
+        " Mitglieder kehren in die flache Liste zurück,"
+      ],
+      [
+        " membro volta à lista plana,",
+        " membros voltam à lista plana,"
+      ]
+    ],
+    "个成员按勾选顺序启动": [
+      [
+        " 个成员按勾选顺序启动",
+        " 个成员按勾选顺序启动"
+      ],
+      [
+        " 個成員依勾選順序啟動",
+        " 個成員依勾選順序啟動"
+      ],
+      [
+        " member starts in the order they were checked",
+        " members start in the order they were checked"
+      ],
+      [
+        " 件のメンバーがチェックした順に起動します",
+        " 件のメンバーがチェックした順に起動します"
+      ],
+      [
+        " 개의 멤버가 체크한 순서대로 시작됩니다",
+        " 개의 멤버가 체크한 순서대로 시작됩니다"
+      ],
+      [
+        " membre démarre dans l'ordre de sélection",
+        " membres démarrent dans l'ordre de sélection"
+      ],
+      [
+        " miembro se inicia en el orden en que se marcaron",
+        " miembros se inician en el orden en que se marcaron"
+      ],
+      [
+        " Mitglied startet in der Ankreuzreihenfolge",
+        " Mitglieder starten in der Ankreuzreihenfolge"
+      ],
+      [
+        " membro inicia na ordem em que foram marcados",
+        " membros iniciam na ordem em que foram marcados"
+      ]
+    ],
+    "正在全量刷新 {n} 项服务": [
+      [
+        "正在全量刷新 {n} 项服务",
+        "正在全量刷新 {n} 项服务"
+      ],
+      [
+        "正在完整重新整理 {n} 項服務",
+        "正在完整重新整理 {n} 項服務"
+      ],
+      [
+        "Full refresh of {n} service",
+        "Full refresh of {n} services"
+      ],
+      [
+        "{n} 件をすべて更新中",
+        "{n} 件をすべて更新中"
+      ],
+      [
+        "서비스 {n}개 전체 새로 고치는 중",
+        "서비스 {n}개 전체 새로 고치는 중"
+      ],
+      [
+        "Actualisation complète de {n} service",
+        "Actualisation complète de {n} services"
+      ],
+      [
+        "Actualización completa de {n} servicio",
+        "Actualización completa de {n} servicios"
+      ],
+      [
+        "Vollständige Aktualisierung von {n} Dienst",
+        "Vollständige Aktualisierung von {n} Diensten"
+      ],
+      [
+        "Atualização completa de {n} serviço",
+        "Atualização completa de {n} serviços"
+      ]
+    ],
+    "正在刷新 {n} 项已启动服务": [
+      [
+        "正在刷新 {n} 项已启动服务",
+        "正在刷新 {n} 项已启动服务"
+      ],
+      [
+        "正在重新整理 {n} 項已啟動服務",
+        "正在重新整理 {n} 項已啟動服務"
+      ],
+      [
+        "Refreshing {n} started service",
+        "Refreshing {n} started services"
+      ],
+      [
+        "起動済み {n} 件を更新中",
+        "起動済み {n} 件を更新中"
+      ],
+      [
+        "시작된 서비스 {n}개 새로 고치는 중",
+        "시작된 서비스 {n}개 새로 고치는 중"
+      ],
+      [
+        "Actualisation de {n} service démarré",
+        "Actualisation de {n} services démarrés"
+      ],
+      [
+        "Actualizando {n} servicio iniciado",
+        "Actualizando {n} servicios iniciados"
+      ],
+      [
+        "{n} gestarteter Dienst wird aktualisiert",
+        "{n} gestartete Dienste werden aktualisiert"
+      ],
+      [
+        "Atualizando {n} serviço iniciado",
+        "Atualizando {n} serviços iniciados"
+      ]
+    ]
+  },
+  "pre": [
+    {
+      "pre": " · 另有 ",
+      "noun": "项",
+      "forms": [
+        [
+          " · 另有 {n} 项",
+          " · 另有 {n} 项"
+        ],
+        [
+          " · 另有 {n} 項",
+          " · 另有 {n} 項"
+        ],
+        [
+          " · {n} more item",
+          " · {n} more items"
+        ],
+        [
+          " · 他に {n} 件",
+          " · 他に {n} 件"
+        ],
+        [
+          " · 외 {n}개",
+          " · 외 {n}개"
+        ],
+        [
+          " · {n} autre élément",
+          " · {n} autres éléments"
+        ],
+        [
+          " · {n} otro elemento",
+          " · {n} otros elementos"
+        ],
+        [
+          " · {n} weiterer Eintrag",
+          " · {n} weitere Einträge"
+        ],
+        [
+          " · {n} outro item",
+          " · {n} outros itens"
+        ]
+      ]
+    }
+  ]
+}

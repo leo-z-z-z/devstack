@@ -1,0 +1,115 @@
+{
+  "tester": "B",
+  "method": "实现驱动白盒 + 故障注入 / 源码审查",
+  "platform": "win32",
+  "node": "v22.22.2",
+  "dataDir": "C:\\Users\\lzp\\AppData\\Local\\Temp\\devstack-B-9RzfQk",
+  "at": "2026-11-16T15:57:08.075Z",
+  "results": [
+    {
+      "id": "K01",
+      "name": "添加服务与持久化",
+      "method": "注入 port 越界 / 非法 id / 空命令 / 非字符串 args，观察是否落盘污染",
+      "verdict": "PASS",
+      "evidence": "非法对象被静默写入=0/3 / 落盘污染=false / 回读 errors=0 / 写路径强制预检=false"
+    },
+    {
+      "id": "K02",
+      "name": "模板库扫描与异常标红",
+      "method": "validateTemplate 逐类边界 + 128KB / 重复 id / 运行时字段",
+      "verdict": "PASS",
+      "evidence": "非法模板识别=4/4 / 重复id=true / 128KB=true"
+    },
+    {
+      "id": "K03",
+      "name": "模板驱动新增服务",
+      "method": "instantiate 占位符 / 路径规范化 / 平台命令 / id 唯一性",
+      "verdict": "PASS",
+      "evidence": "占位符清空=true / 端口与命令=true / id唯一=true / 路径规范化=true"
+    },
+    {
+      "id": "K04",
+      "name": "新建分组与解散",
+      "method": "memberIds 含不存在 id / gid 指向幽灵组 / 解散后清理",
+      "verdict": "PASS",
+      "evidence": "幽灵成员被过滤=true / 幽灵组规整=true / 解散清理=true"
+    },
+    {
+      "id": "K05",
+      "name": "拖拽顺序写回",
+      "method": "null/undefined/跨组/自身/no-op 注入，检查抛异常与数据污染",
+      "verdict": "PASS",
+      "evidence": "抛异常=否 / 返回值=[-1,-1,-1,0] / 顺序未污染=true"
+    },
+    {
+      "id": "K06",
+      "name": "稳定态守卫",
+      "method": "6 状态 × toggle/restart 全组合；owner 冲突拦截",
+      "verdict": "PASS",
+      "evidence": "拦截=6/6（starting/stopping/owner 各 toggle+restart）"
+    },
+    {
+      "id": "K07",
+      "name": "全部启停编排",
+      "method": "连续两次 startAll() 重入，检查组合串行链是否被第二条链抢跑",
+      "verdict": "PASS",
+      "evidence": "两次调用均受理=false / 第二项拉起早于第一项就绪=false（w2=1794844623831 h1=1794844623829）/ startAll去重守卫=true / 事件=start:→watch:b-seq1→hit:b-seq1→start:→watch:b-seq2→hit:b-seq2"
+    },
+    {
+      "id": "K08",
+      "name": "组级串行与真实进程",
+      "method": "可控 probe 验证 done→next：第二项 doStart 不早于第一项 onHit；停止倒序",
+      "verdict": "PASS",
+      "evidence": "完成驱动(第二项watch≥第一项hit)=true / 倒序链=true / 事件=start→watch:b-seq1→hit:b-seq1→start→watch:b-seq2→hit:b-seq2"
+    },
+    {
+      "id": "K09",
+      "name": "端口冲突拦截",
+      "method": "probeOne 归属分支 + conflictOf + 冲突时终止所属链后续",
+      "verdict": "PASS",
+      "evidence": "确认计划列出冲突=true / 冲突项未启动=true / 冲突链级终止代码=true"
+    },
+    {
+      "id": "K10",
+      "name": "配置损坏容错",
+      "method": "损坏文件 / 原子写并发 / 错误是否被上层忽略",
+      "verdict": "PASS",
+      "evidence": "读损坏文件抛异常=否 / 损坏配置现场备份=true 错误可见=true / Store丢弃errors=false / 固定.tmp并发风险=false"
+    },
+    {
+      "id": "K11",
+      "name": "活动日志",
+      "method": "源码审查 store.activity → logs.pushActivity 调用链 + 运行时实测",
+      "verdict": "PASS",
+      "evidence": "活动条数 12→13 / store.activity 落库=true / 全仓 pushActivity 调用点=logs.ts,store.ts"
+    },
+    {
+      "id": "K12",
+      "name": "启动失败状态收敛",
+      "method": "真实 ProbeScheduler 但不起心跳；启动必然失败，超时后检查 busy 是否解除",
+      "verdict": "PASS",
+      "evidence": "动作中=starting / 超时后=unknown / 复点={\"ok\":true} / 超时分支写终态=true（心跳已禁用，排除竞态掩盖）"
+    },
+    {
+      "id": "K13",
+      "name": "模板读取路径边界",
+      "method": "templateFilePath 校验、startsWith 前缀绕过实测、open-url 协议、shell:false",
+      "verdict": "PASS",
+      "evidence": "前缀绕过删除目录外文件=false / read-template-file无边界=false / open-url协议白名单=true / setWindowOpenHandler白名单=true / shell:false=true / preload白名单=true"
+    },
+    {
+      "id": "K14",
+      "name": "国际化 9 语覆盖",
+      "method": "词典结构 + 用产品真实 tr() 对渲染器文案样本跑 6 个非汉字语种",
+      "verdict": "PASS",
+      "evidence": "词典=724键×9语完整=true / 文案样本=60 / 6语种残留中文=0 / 例： / 切回简体=true"
+    },
+    {
+      "id": "K15",
+      "name": "macOS/Linux 分支正确性",
+      "method": "静态审查 runner/probe/paths/presets 双分支，重点负 PID 进程组",
+      "verdict": "PASS",
+      "evidence": "负PID杀组=true / execAndWait为detached=true / 分支矛盾=false / sh解释器=true / lsof=true / appData跨平台=true / presets平台分支=true"
+    }
+  ]
+}

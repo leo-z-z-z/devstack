@@ -1,0 +1,42 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+dist-electron/
+release/
+out/
+*.tsbuildinfo
+
+# Electron 打包输出
+electron-builder.yml
+*.exe
+*.dmg
+*.AppImage
+*.snap
+
+# 本地环境与编辑器
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Claude Code 本地配置（仅本机生效，不入库）
+.claude/settings.local.json
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+yarn-error.log*
+*.tmp
+*.bak
+
+# 测试运行时产物
+test/.tmp/
+test/tmp/
+coverage/
+.nyc_output/

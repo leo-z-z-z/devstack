@@ -1,0 +1,117 @@
+{
+  "tester": "A",
+  "method": "规格驱动黑盒 / IPC 契约 + 外部副作用",
+  "specSource": "prototype/index.html v2.39",
+  "platform": "win32",
+  "node": "v22.22.2",
+  "dataDir": "C:\\Users\\lzp\\AppData\\Local\\Temp\\devstack-A-cHctgp",
+  "channelCount": 31,
+  "at": "2026-11-16T15:57:02.865Z",
+  "results": [
+    {
+      "id": "K01",
+      "name": "添加服务与持久化",
+      "spec": "S01 upsert-service → 快照可见 + services.yaml 落盘 + 回读一致",
+      "verdict": "PASS",
+      "evidence": "快照=true / 落盘=true / 回读=true"
+    },
+    {
+      "id": "K02",
+      "name": "模板库扫描与异常标红",
+      "spec": "S02 9 模板可用；非法模板标红且给出错误清单",
+      "verdict": "PASS",
+      "evidence": "9模板=true / 非法标红=true / 128KB上限=true"
+    },
+    {
+      "id": "K03",
+      "name": "模板驱动新增服务",
+      "spec": "S03 模板可用字段能创建服务并落盘；命令无残留占位符",
+      "verdict": "PASS",
+      "evidence": "创建成功=true / 占位符已展开=true / 命令=rs\\lzp\\AppData\\Local\\Temp\\devstack-A-cHctgp/redis-server.exe"
+    },
+    {
+      "id": "K04",
+      "name": "新建分组与解散",
+      "spec": "S04 save-group 后成员归属正确且连续；dissolve 后 gid 清空",
+      "verdict": "PASS",
+      "evidence": "组存在=true / 连续=true / 归属=true / 解散清 gid=true"
+    },
+    {
+      "id": "K05",
+      "name": "拖拽顺序写回",
+      "spec": "S05 有效移动=1 / 无变化=0 / 非法=-1，且 no-op 不改变顺序",
+      "verdict": "PASS",
+      "evidence": "块no-op=0(顺序未变=true) / 非法=-1 / 成员自身=0 / 重排=1 → a-g2,a-g1"
+    },
+    {
+      "id": "K06",
+      "name": "稳定态守卫",
+      "spec": "S06 过渡态下主按钮/重启不执行；stopping 点停止不得反向启动",
+      "verdict": "PASS",
+      "evidence": "starting守卫=true(starting) / stopping守卫=true(stopping) / 未反向启动=true"
+    },
+    {
+      "id": "K07",
+      "name": "全部启停编排",
+      "spec": "S07 确认计划给出并行数与串行链；busy 项被跳过；全启/全停闭环",
+      "verdict": "PASS",
+      "evidence": "并行=5 串行链=1 busy跳过=1/1 / 全启=true 全停=true busy未被拉起=true"
+    },
+    {
+      "id": "K08",
+      "name": "组级串行与真实进程",
+      "spec": "S08 组合内上一项端口 LISTEN 后下一项才被拉起；停止倒序；真实 Redis 可启停",
+      "verdict": "PASS",
+      "evidence": "完成驱动(第二项SPAWN≥第一项LISTEN)=true(间隔 1886ms) / 倒序=true / 组启停=true,true / 真实Redis=PASS(就绪=true 起=true 态=true 停=true) / 事件=4"
+    },
+    {
+      "id": "K09",
+      "name": "端口冲突拦截",
+      "spec": "S09 外部占用不得误判为自身服务，且启动/重启被拦截",
+      "verdict": "PASS",
+      "evidence": "外部LISTEN=true / 归属标注=true(node.exe PID 4628) / 状态=running / 外部托管=true / PID指向夹具进程=true"
+    },
+    {
+      "id": "K10",
+      "name": "配置损坏容错",
+      "spec": "S10 损坏的 services.yaml 应返回结构化错误并保留现场，不得抛异常",
+      "verdict": "PASS",
+      "evidence": "抛异常=否 / 结构化错误=true / 现场备份=true / 恢复后可读=true"
+    },
+    {
+      "id": "K11",
+      "name": "活动日志",
+      "spec": "S11 启停/调度操作后 get-activity-log 应可查到记录",
+      "verdict": "PASS",
+      "evidence": "已执行十余次启停/调度动作，活动日志条数=43"
+    },
+    {
+      "id": "K12",
+      "name": "启动失败状态收敛",
+      "spec": "S12 启动超时后服务必须脱离 busy 过渡态，恢复可操作",
+      "verdict": "PASS",
+      "evidence": "超时后状态=unknown / 仍被守卫拒绝=false / 复点结果={\"ok\":true}"
+    },
+    {
+      "id": "K13",
+      "name": "模板读取路径边界",
+      "spec": "S13 read-template-file 不得读取模板目录之外的文件",
+      "verdict": "PASS",
+      "evidence": "越界相对路径=..\\..\\devstack-A-secret.txt / 读到目录外内容=false / 返回 ok=false / 合法读取=true"
+    },
+    {
+      "id": "K14",
+      "name": "国际化 9 语覆盖",
+      "spec": "S14 9 语切换后每页无中文残留",
+      "verdict": "NA",
+      "evidence": "黑盒无窗口/DOM 可观察，无法判定；此检查点由测试员工 B 与第三方 i18n 测试覆盖"
+    },
+    {
+      "id": "K15",
+      "name": "macOS/Linux 分支正确性",
+      "spec": "S15 POSIX 进程树/端口归属分支正确",
+      "verdict": "NA",
+      "evidence": "当前仅 win32 运行时，无法观察 POSIX 分支；由 B 的源码审查覆盖，真机复验另列"
+    }
+  ]
+}
