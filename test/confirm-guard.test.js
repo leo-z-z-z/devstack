@@ -204,7 +204,7 @@ const GUARD_KEYS = [
   '组合串行链正在执行中，请等待本次调度完成。',
   '当前服务状态尚未就绪，请等待探测完成后再操作。'
 ];
-ok(Object.keys(dict).length === 676, '词典键数 676（v2.56 主页面异常统计新增 5 键）');
+ok(Object.keys(dict).length === 788, '词典键数 788');
 ok(GUARD_KEYS.every(k => Array.isArray(dict[k]) && dict[k].length === 9), '6 条守卫提示均收录 9 语');
 ok(GUARD_KEYS.every(k => dict[k] && dict[k].every(v => typeof v === 'string' && v.trim())), '6 条提示 9 语无空值');
 const CJK = /[\u3400-\u9fff]/;

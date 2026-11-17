@@ -117,6 +117,7 @@ export function normalizeServicePaths(s: ServiceDefinition): ServiceDefinition {
   return {
     ...s,
     dir: normalizePath(s.dir),
+    logDir: s.logDir ? normalizePath(s.logDir) : s.logDir,
     cfg: {
       ...s.cfg,
       acts: {

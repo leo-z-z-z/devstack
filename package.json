@@ -52,5 +52,14 @@
     "js-yaml": "^4.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "build": {
+    "win": {
+      "sign": null,
+      "signAndEditExecutable": false,
+      "signDlls": false,
+      "signExts": false
+    },
+    "asar": false
   }
 }

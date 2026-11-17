@@ -35,6 +35,7 @@ function createWindow(): void {
     minHeight: 720,
     backgroundColor: '#F4F6F9',   // 与页面底色一致，避免冷启动瞬间闪灰/闪白
     title: '本地服务管理器',
+    show: false,                  // 页面加载完成前先不显示，避免白屏闪烁
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -56,6 +57,8 @@ function createWindow(): void {
   });
   wc.on('did-finish-load', () => {
     console.log('[devstack] page load finished url=' + wc.getURL());
+    // 页面加载完成后再显示窗口，避免白屏闪烁
+    win?.show();
     // 启动自检：>0 表示 React 已挂载；为 0 通常是 preload 未注入或渲染器脚本报错
     setTimeout(() => {
       void wc.executeJavaScript(

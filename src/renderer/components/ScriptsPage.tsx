@@ -400,8 +400,8 @@ export function ScriptsPage(): JSX.Element {
                     <div className="tools" style={{ gap: 6 }}>
                       {curFile?.exists && (
                         <>
-                          <button className="btn primary" onClick={() => void onRun()} disabled={running?.serviceId === curService.serviceId && running?.file === curFile.file || saving}>
-                            {running?.serviceId === curService.serviceId && running?.file === curFile.file ? t('正在运行…') : t('运行脚本')}
+                          <button className="btn primary" onClick={() => void onRun()} disabled={!!curService && (running?.serviceId === curService.serviceId && running?.file === curFile.file || saving)}>
+                            {curService && running?.serviceId === curService.serviceId && running?.file === curFile.file ? t('正在运行…') : t('运行脚本')}
                           </button>
                           <button className="btn danger tpldel" onClick={() => void onDelete()}>{t('删除脚本')}</button>
                         </>

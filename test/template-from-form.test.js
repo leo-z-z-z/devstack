@@ -15,7 +15,7 @@ function ok(cond, msg) {
 
 function input(over = {}) {
   return {
-    name: 'My Redis', dir: 'C:/dev/redis', port: '6379', url: 'http://localhost:6379',
+    name: 'My Redis', dir: 'C:/dev/redis', logDir: '', port: '6379', url: 'http://localhost:6379',
     acts: {
       start: { cmd: 'C:/dev/redis/redis-server.exe', args: 'C:/dev/redis/redis.conf --port 6379', runner: '', timeout: '15000' },
       stop: { cmd: '', args: '', runner: '', timeout: '8000' },

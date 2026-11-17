@@ -11,13 +11,14 @@ const net = require('node:net');
 const port = Number(process.env.DEVSTACK_VITE_PORT || 5173);
 const url = 'http://localhost:' + port;
 const TIMEOUT_MS = 60000;
+const POLL_MS = 100;
 
 function once(host) {
   return new Promise(res => {
     const s = net.connect({ host, port });
     s.on('connect', () => { s.destroy(); res(true); });
     s.on('error', () => res(false));
-    s.setTimeout(700, () => { s.destroy(); res(false); });
+    s.setTimeout(500, () => { s.destroy(); res(false); });
   });
 }
 async function ready() {
@@ -31,7 +32,7 @@ async function ready() {
       console.log('[devstack] Vite 就绪 ' + url);
       process.exit(0);
     }
-    await new Promise(r => setTimeout(r, 250));
+    await new Promise(r => setTimeout(r, POLL_MS));
   }
   console.error('[devstack] 等待 Vite 超时 ' + url);
   process.exit(1);

@@ -68,6 +68,7 @@ export function validateService(v: unknown, idx: number, errs: string[]): Servic
     webPort: v.webPort as number | undefined,
     webUrl: (v.webUrl as string | null | undefined) ?? null,
     dir: v.dir as string,
+    logDir: (v.logDir as string | null | undefined) ?? null,
     template: v.template as string | undefined,
     cfg: v.cfg as ServiceDefinition['cfg']
   };

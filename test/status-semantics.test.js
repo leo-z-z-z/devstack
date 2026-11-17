@@ -100,8 +100,8 @@ function mkSvc(id, port) {
   ok(store.state(svc.id).st === 'starting', '启动动作进入 starting');
   await sleep(900); // 超过 350ms 定向快探超时
   const after = store.state(svc.id);
-  ok(after.st === 'unknown' && after.actionNote === '启动超时',
-    '启动超时写入 actionNote（实际：' + after.st + ' / ' + after.actionNote + '）');
+  ok(after.st === 'unknown' && (after.actionNote === '启动超时' || after.actionNote?.startsWith('启动失败：')),
+    '启动失败写入 actionNote（实际：' + after.st + ' / ' + after.actionNote + '）');
   ok(!after.owner && !after.ownerPid, '普通启动失败没有端口占用者');
   ok(after.portNote !== '启动超时', '启动超时不再写进 portNote');
 

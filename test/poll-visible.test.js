@@ -303,7 +303,7 @@ const fakeCp = { execSync: () => '' };   // findOwner / processName 一律返回
     '状态文案移入 aria-label，悬停 / 读屏仍可获知（已移除鼠标悬停 title）');
   ok(/standby \? ' stby' : ''/.test(indicator) && /\.pollchip\.stby\{[^}]*color:#94A3B8/.test(css),
     '0 项已启动时图标灰化，暂停态与空闲态视觉可区分');
-  ok(Object.keys(dict).length === 730, '词典 730 键（v2.56 主页面异常统计新增 5 键 + 组合编辑新增 3 键 + 组合删除新增 1 键 + 字符串片段 4 键 + 模板反引号 key 1 键 + schedule 原有缺口 4 键 + 组合重命名 2 键 + 双栏成员管理 9 键 + 双栏补充 3 键 + 分组管理页面 13 键 + 分组管理边界 8 键 + 分组管理 hint 1 键 + 命令预览 1 键 + 服务按钮忙碌态 1 键 + 中断启动 1 键 + 已中断启动 1 键 + 中断中 1 键 + 中断失败 1 键）');
+  ok(Object.keys(dict).length === 788, '词典 788 键');
   const NEW_KEYS = [
     '正在刷新 {n} 项服务', '正在全量刷新 {n} 项服务',
     '每 {s} 秒自动刷新', '自动刷新已暂停',

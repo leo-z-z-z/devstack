@@ -153,7 +153,7 @@ export function ServiceCard({ s, st, seq, onDragMove }: {
       </div>
       <div className="acts">
         <button className="iconbtn" title={t('打开目录')} onClick={() => void api.openDir(s.dir)}><Icon id="iF" size={13} /></button>
-        {s.logDir && <button className="iconbtn" title={t('打开日志目录')} onClick={() => void openLogDir(s.logDir)}><Icon id="iLog" size={13} /></button>}
+        {s.logDir && <button className="iconbtn" title={t('打开日志目录')} onClick={() => void openLogDir(s.logDir!)}><Icon id="iLog" size={13} /></button>}
         <button className="iconbtn log-btn" title={t('启动日志')} onClick={() => void openLog()}>L</button>
         <button className="iconbtn" title={t(rstTitle)} onClick={() => void onRestart()}><Icon id="iR" size={13} /></button>
         <button className="iconbtn del" title={t('删除服务')} onClick={(e) => {

@@ -48,7 +48,7 @@ export interface Api {
   openScriptFolder(): Promise<{ ok: boolean }>;
   createScriptDir(serviceId: string): Promise<{ ok: boolean; dir?: string; error?: string }>;
 
-  openDir(dir: string): Promise<{ ok: boolean }>;
+  openDir(dir: string): Promise<{ ok: boolean; reason?: string }>;
   openUrl(url: string): Promise<{ ok: boolean }>;
   selectFile(kind: 'script' | 'runner', labels: FileDialogLabels): Promise<{ ok: boolean; canceled?: boolean; path?: string }>;
   getServiceLog(id: string): Promise<LogLine[]>;

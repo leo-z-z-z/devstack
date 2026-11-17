@@ -10,7 +10,9 @@
     "resolveJsonModule": true,
     "outDir": "dist-electron/main",
     "sourceMap": true,
-    "types": ["node"]
+    "types": ["node"],
+    "incremental": true,
+    "tsBuildInfoFile": "dist-electron/main/.tsbuildinfo"
   },
   "include": ["src/main", "src/shared"]
 }
