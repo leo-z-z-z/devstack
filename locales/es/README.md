@@ -61,6 +61,11 @@ El software no descarga, descomprime ni instala ningún middleware ; todos los c
 - **Confirmación en dos pasos** : Inicio masivo / detención masiva / eliminar servicio requieren confirmación, con el popup indicando el alcance del impacto y el orden de ejecución
 - **Internacionalización** : 9 idiomas（简体中文 / 繁體中文 / English / 日本語 / 한국어 / Français / Español / Deutsch / Português）, el cambio en la barra superior entra en vigor inmediatamente
 
+## Capturas de pantalla de la aplicación
+
+![Captura de pantalla 1 de la aplicación](../assets/1.png)
+![Captura de pantalla 2 de la aplicación](../assets/2.png)
+
 ## Pila tecnológica
 
 | Capa | Tecnología | Propósito |

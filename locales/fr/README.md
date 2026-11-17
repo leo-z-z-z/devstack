@@ -61,6 +61,11 @@ Le logiciel ne télécharge, ne décompresse et n'installe aucun middleware ; to
 - **Confirmation en deux étapes** : Démarrage en masse / arrêt en masse / suppression de service nécessitent tous une confirmation, le popup indiquant la portée d'impact et l'ordre d'exécution
 - **Internationalisation** : 9 langues（简体中文 / 繁體中文 / English / 日本語 / 한국어 / Français / Español / Deutsch / Português）, changement dans la barre supérieure prenant effet immédiatement
 
+## Captures d'écran de l'application
+
+![Capture d'écran 1 de l'application](../assets/1.png)
+![Capture d'écran 2 de l'application](../assets/2.png)
+
 ## Stack technique
 
 | Couche | Technologie | But |

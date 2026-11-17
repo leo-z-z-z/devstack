@@ -62,6 +62,11 @@ O software não baixa, descompacta nem instala nenhum middleware ; todos os comp
 - **Confirmação em duas etapas** : Início em massa / parada em massa / excluir serviço requerem confirmação, com o popup indicando o escopo de impacto e a ordem de execução
 - **Internacionalização** : 9 idiomas（简体中文 / 繁體中文 / English / 日本語 / 한국어 / Français / Español / Deutsch / Português）, mudança na barra superior entra em vigor imediatamente
 
+## Capturas de tela do aplicativo
+
+![Captura de tela 1 do aplicativo](../assets/1.png)
+![Captura de tela 2 do aplicativo](../assets/2.png)
+
 ## Pilha de Tecnologia
 
 | Camada | Tecnologia | Propósito |

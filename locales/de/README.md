@@ -61,6 +61,11 @@ Die Software lädt keine Middleware herunter, entpackt oder installiert sie nich
 - **Zwei-Stufen-Bestätigung** : Massenstart / Massenstopp / Dienst löschen erfordern alle eine Bestätigung, das Popup gibt den Auswirkungensumfang und die Ausführungsreihenfolge an
 - **Internationalisierung** : 9 Sprachen（简体中文 / 繁體中文 / English / 日本語 / 한국어 / Français / Español / Deutsch / Português）, Umschalten in der oberen Leiste tritt sofort in Kraft
 
+## Anwendungs-Screenshots
+
+![Anwendungs-Screenshot 1](../assets/1.png)
+![Anwendungs-Screenshot 2](../assets/2.png)
+
 ## Tech-Stack
 
 | Schicht | Technologie | Zweck |

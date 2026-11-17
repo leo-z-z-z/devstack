@@ -61,6 +61,11 @@ The software does not download, unzip, or install any middleware; all components
 - **Two-step confirmation**: Bulk start / bulk stop / delete service all require confirmation, with the popup stating impact scope and execution order
 - **Internationalization**: 9 languages (Simplified Chinese / Traditional Chinese / English / Japanese / Korean / French / Spanish / German / Portuguese), top-bar switching takes effect immediately
 
+## Application Screenshots
+
+![Application Screenshot 1](../assets/1.png)
+![Application Screenshot 2](../assets/2.png)
+
 ## Tech Stack
 
 | Layer | Technology | Purpose |
