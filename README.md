@@ -1,3 +1,8 @@
+<!--
+  图片说明：横幅、打字机动态文字、下载/反馈按钮、技术栈徽章等图片资源，
+  当前使用外部占位链接，后续将替换为项目内上传的本地图片文件。
+-->
+
 <p align="center">
   <a href="https://github.com/leo-z-z-z/devstack">
     <img src="https://img.shields.io/badge/devstack-本地服务管理器-21C8B8?logo=electron&logoColor=white" width="340"></a>
@@ -27,9 +32,23 @@
 </p>
 
 <p align="center">
-  简体中文
+  <strong>简体中文</strong>
   ｜
-  <a href="#">English</a>
+  <a href="zh-TW/README.md">繁體中文</a>
+  ｜
+  <a href="en/README.md">English</a>
+  ｜
+  <a href="ja/README.md">日本語</a>
+  ｜
+  <a href="ko/README.md">한국어</a>
+  ｜
+  <a href="fr/README.md">Français</a>
+  ｜
+  <a href="es/README.md">Español</a>
+  ｜
+  <a href="de/README.md">Deutsch</a>
+  ｜
+  <a href="pt/README.md">Português</a>
 </p>
 
 ## 关于本项目
