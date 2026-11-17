@@ -33,25 +33,9 @@ export function ServiceCard({ s, st, seq, onDragMove }: {
 }): JSX.Element {
   const { t } = useI18n();
   const ui = useUi();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [menuPosition, setMenuPosition] = useState<{ top: number; left: number } | null>(null);
-  const btnMoreRef = useRef<HTMLButtonElement>(null);
   const [toggleBusy, setToggleBusy] = useState(false);
   const [interruptBusy, setInterruptBusy] = useState(false);
   const [dragOver, setDragOver] = useState<'before' | 'after' | null>(null);
-
-  /* 点击页面其他区域关闭菜单 */
-  useEffect(() => {
-    const onDocumentClick = (e: MouseEvent) => {
-      if (!menuOpen) return;
-      const target = e.target as HTMLElement;
-      if (btnMoreRef.current && btnMoreRef.current.contains(target)) return;
-      // 菜单是 fixed 定位，不在 btnMoreRef 内部，直接关闭
-      setMenuOpen(false);
-    };
-    document.addEventListener('click', onDocumentClick, true);
-    return () => document.removeEventListener('click', onDocumentClick, true);
-  }, [menuOpen]);
 
   const state = st?.st ?? 'unknown';
   const on = state === 'running' || state === 'stopping';
@@ -169,46 +153,39 @@ export function ServiceCard({ s, st, seq, onDragMove }: {
       </div>
       <div className="acts">
         <button className="iconbtn" title={t('打开目录')} onClick={() => void api.openDir(s.dir)}><Icon id="iF" size={13} /></button>
-        <button className="iconbtn" title={t('启动日志')} onClick={() => void openLog()}><Icon id="iL" size={13} /></button>
+        {s.logDir && <button className="iconbtn" title={t('打开日志目录')} onClick={() => void openLogDir(s.logDir)}><Icon id="iLog" size={13} /></button>}
+        <button className="iconbtn log-btn" title={t('启动日志')} onClick={() => void openLog()}>L</button>
         <button className="iconbtn" title={t(rstTitle)} onClick={() => void onRestart()}><Icon id="iR" size={13} /></button>
-        <button ref={btnMoreRef} className="iconbtn" title={t('更多')} onClick={(e) => {
+        <button className="iconbtn del" title={t('删除服务')} onClick={(e) => {
           e.stopPropagation();
-          if (menuOpen) { setMenuOpen(false); return; }
-          const btn = btnMoreRef.current;
-          if (btn) {
-            const rect = btn.getBoundingClientRect();
-            setMenuPosition({ top: rect.bottom + 6, left: rect.right - 154 });
-          }
-          setMenuOpen(true);
-        }}><Icon id="iM" size={13} /></button>
+          ui.openModal({
+            kind: 'confirm',
+            title: '删除服务',
+            body: `删除「<b>${s.name}</b>」后将从 services.yaml 移除，端口与命令配置一并清除，不可恢复。`,
+            okText: '确认删除',
+            danger: true,
+            onOk: () => { void api.removeService(s.id); ui.toast(s.name + ' 已删除'); }
+          });
+        }}><Icon id="iX" size={13} /></button>
         <button className={'btn js-toggle' + (on ? '' : ' primary') + (busy || toggleBusy ? ' btn-busy' : '')} disabled={busy || toggleBusy} title={t(mainTitle)} onClick={() => void onToggle()}>
           <Icon id={on ? 'iS' : 'iP'} size={11} />{busy || toggleBusy ? t('操作中…') : t(on ? '停止' : '启动')}
         </button>
         {state === 'starting' && <button className="btn danger" disabled={interruptBusy} onClick={() => void onInterruptStart()} title={t('中断启动')}>{interruptBusy ? t('中断中…') : t('中断启动')}</button>}
       </div>
-      {menuOpen && menuPosition && (
-        <div className="menu" style={{ top: menuPosition.top, left: menuPosition.left }} onMouseLeave={() => setMenuOpen(false)}>
-          <div data-m="edit" onClick={() => { setMenuOpen(false); ui.openModal({ kind: 'editor', service: s }); }}>{t('编辑配置')}</div>
-          <div data-m="move" onClick={() => { setMenuOpen(false); ui.openModal({ kind: 'move', service: s }); }}>{t('移入组合…')}</div>
-          {s.gid && <div data-m="leave" onClick={async () => { setMenuOpen(false); await api.moveToGroup(s.id, null); ui.toast(s.name + ' 已移出组合'); }}>{t('移出组合')}</div>}
-          <div data-m="del" className="danger" onClick={() => {
-            setMenuOpen(false);
-            ui.openModal({
-              kind: 'confirm',
-              title: '删除服务',
-              body: `删除「<b>${s.name}</b>」后将从 services.yaml 移除，端口与命令配置一并清除，不可恢复。`,
-              okText: '确认删除',
-              danger: true,
-              onOk: () => { void api.removeService(s.id); ui.toast(s.name + ' 已删除'); }
-            });
-          }}>{t('删除服务')}</div>
-        </div>
-      )}
     </div>
   );
 
   async function openLog(): Promise<void> {
     const lines = await api.getServiceLog(s.id);
     ui.openDrawer({ title: s.name + ' · 启动日志', chip: 'stdout', lines });
+  }
+
+  /** 打开服务日志目录：仅允许本地文件路径，避免意外打开浏览器 */
+  async function openLogDir(dir: string): Promise<void> {
+    if (!dir || !dir.trim()) { ui.toast('日志目录为空'); return; }
+    // 禁止打开 URL 或非本地路径
+    if (/^https?:\/\//i.test(dir) || /^(data|mailto|file):/i.test(dir)) { ui.toast('不支持打开网络链接'); return; }
+    const r = await api.openDir(dir.trim());
+    if (!r.ok && r.reason) ui.toast('打开日志目录失败：' + r.reason);
   }
 }

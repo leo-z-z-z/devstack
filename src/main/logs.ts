@@ -25,6 +25,8 @@ class LogBuffer {
     if (buf.length > MAX_LINES) buf.splice(0, buf.length - MAX_LINES);
     this.buffers.set(id, buf);
     store.serviceLog(id, line);
+    // P1：落盘到服务日志文件
+    this.writeToFile(id, line);
   }
 
   get(id: string): LogLine[] { return this.buffers.get(id) ?? []; }
@@ -33,6 +35,8 @@ class LogBuffer {
     const line: LogLine = { ts: this.now(), level, tag, msg };
     this.activity.push(line);
     if (this.activity.length > MAX_LINES) this.activity.splice(0, this.activity.length - MAX_LINES);
+    // P1：落盘到软件运行日志
+    this.writeAppLog(line);
   }
 
   getActivity(): LogLine[] { return this.activity; }
@@ -41,6 +45,56 @@ class LogBuffer {
     this.buffers.delete(id);
     const h = this.tailHandles.get(id);
     if (h) { h.close(); this.tailHandles.delete(id); }
+  }
+
+  // P1：将单条日志追加写入服务独立日志文件 logs/<id>.log
+  private writeToFile(id: string, line: LogLine): void {
+    try {
+      const dir = logDir();
+      fs.mkdirSync(dir, { recursive: true });
+      const file = path.join(dir, `${id}.log`);
+      const logLine = `${line.ts} [${line.level}] ${line.tag}: ${line.msg}\n`;
+      fs.appendFileSync(file, logLine, 'utf8');
+    } catch { /* ignore，文件写失败不应阻断内存日志 */ }
+  }
+
+  // P1：将单条活动日志追加写入软件运行日志 logs/app.log
+  private writeAppLog(line: LogLine): void {
+    try {
+      const dir = logDir();
+      fs.mkdirSync(dir, { recursive: true });
+      const file = path.join(dir, 'app.log');
+      const logLine = `${line.ts} [${line.level}] ${line.tag}: ${line.msg}\n`;
+      fs.appendFileSync(file, logLine, 'utf8');
+    } catch { /* ignore */ }
+  }
+
+  // P1：删除超过设定天数的 .log 文件
+  cleanupOldLogs(days: number): void {
+    try {
+      const dir = logDir();
+      if (!fs.existsSync(dir)) return;
+      const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+      const files = fs.readdirSync(dir);
+      for (const file of files) {
+        if (!file.endsWith('.log')) continue;
+        const full = path.join(dir, file);
+        try {
+          const stat = fs.statSync(full);
+          if (stat.mtimeMs < cutoff) {
+            fs.unlinkSync(full);
+          }
+        } catch { /* ignore */ }
+      }
+    } catch { /* ignore */ }
+  }
+
+  // P1：启动清理定时器，立即执行一次， thereafter 每小时检查一次
+  startCleanupTimer(days: number): void {
+    this.cleanupOldLogs(days);
+    setInterval(() => {
+      try { this.cleanupOldLogs(days); } catch { /* ignore */ }
+    }, 60 * 60 * 1000).unref();
   }
 
   /** 文件 tail：跟随服务的 log.file，简单轮询增量读取（跨平台、无原生依赖） */
@@ -79,3 +133,11 @@ class LogBuffer {
 }
 
 export const logs = new LogBuffer();
+
+// P1：模块加载后延迟启动日志清理，确保 store 已初始化
+setTimeout(() => {
+  try {
+    const days = store.settings().logDays ?? 7;
+    logs.startCleanupTimer(days);
+  } catch { /* settings 尚未就绪时忽略 */ }
+}, 0);

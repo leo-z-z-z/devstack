@@ -42,6 +42,14 @@ button{cursor:pointer}
 .iconbtn:hover{border-color:#E1E5EB;background:#fff;color:#1D63ED}
 .svc:hover .iconbtn{border-color:#E1E5EB;background:#fff;color:#677285}
 .svc:hover .iconbtn:hover{color:#1D63ED}
+.log-btn{width:24px;height:24px;flex:none;border:0.5px solid transparent;background:transparent;border-radius:5px;color:#8A94A6;display:inline-flex;align-items:center;justify-content:center;padding:0;font-size:12px;font-weight:bold;transition:background .12s,border-color .12s,color .12s}
+.log-btn:hover{border-color:#E1E5EB;background:#fff;color:#1D63ED}
+.svc:hover .log-btn{border-color:#E1E5EB;background:#fff;color:#677285}
+.svc:hover .log-btn:hover{color:#1D63ED}
+/* 删除服务按钮：危险警示色，与普通操作按钮区分 */
+.iconbtn.del{color:#E2574C}
+.iconbtn.del:hover{background:#FFF4F2;color:#E2574C;border-color:#E2574C}
+.svc:hover .iconbtn.del{color:#E2574C}
 .page{flex:1;min-height:0;overflow:auto;padding:18px 22px 26px}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .stat{background:#fff;border:0.5px solid #E9ECF1;border-radius:10px;padding:13px 15px}
@@ -229,6 +237,7 @@ textarea:focus{border-color:#1D63ED}
 .menu div:hover{background:#F7FAFF;color:#1D63ED}
 .menu div.danger:hover{color:#E2574C}
 .drawer{position:absolute;top:0;right:0;bottom:0;width:370px;background:#fff;border-left:0.5px solid #E3E6EA;transform:translateX(100%);transition:transform .18s ease-out;z-index:40;display:flex;flex-direction:column}
+.drawer-backdrop{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.08);z-index:39}
 .drawer.on{transform:translateX(0)}
 .drawerhead{height:48px;flex:none;display:flex;align-items:center;gap:9px;padding:0 14px;border-bottom:0.5px solid #EDEFF2}
 .drawerhead h3{font-size:13px;font-weight:500}

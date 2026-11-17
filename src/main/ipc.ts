@@ -137,7 +137,15 @@ export function registerIpc(): void {
   });
 
   /* ---------- 打开 ---------- */
-  ipcMain.handle('open-dir', (_e, dir: string) => { shell.openPath(dir); return { ok: true }; });
+  ipcMain.handle('open-dir', async (_e, dir: string) => {
+    if (!dir || !dir.trim()) return { ok: false, reason: '目录路径为空' };
+    try {
+      await shell.openPath(dir.trim());
+      return { ok: true };
+    } catch (e) {
+      return { ok: false, reason: String(e && (e as Error).message || e) };
+    }
+  });
   ipcMain.handle('open-url', (_e, url: string) => {
     // 修订 40（交叉验证 K13）：仅放行 http/https，阻断 file:/javascript:/自定义协议
     if (!/^https?:\/\//i.test(url)) return { ok: false, error: '仅允许 http/https 链接' };

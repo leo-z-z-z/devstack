@@ -11,6 +11,7 @@ export interface FormActs { cmd: string; args: string; runner: string; timeout: 
 export interface TemplateFormInput {
   name: string;
   dir: string;
+  logDir: string;
   port: string;
   url: string;
   acts: { start: FormActs; stop: FormActs; restart: FormActs };
@@ -117,6 +118,7 @@ function toAction(d: FormActs, dir: string): ActionSpec | null {
 export function buildTemplateFromForm(input: TemplateFormInput, existingIds: string[], overrideId?: string): TemplateBuildResult {
   const name = input.name.trim();
   const dir = input.dir.trim();
+  const logDir = input.logDir.trim();
   const port = parseInt(input.port, 10);
   if (!name) return { ok: false, error: '模板名称不能为空' };
   if (!dir) return { ok: false, error: '安装目录不能为空' };
@@ -137,7 +139,8 @@ export function buildTemplateFromForm(input: TemplateFormInput, existingIds: str
     defaults: {
       displayName: name,
       installDirHint: dir,
-      webUrl
+      webUrl,
+      logDir: logDir || null
     },
     probe: { port },
     actions: {

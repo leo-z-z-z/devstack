@@ -38,7 +38,7 @@ export function ensureTemplatesSeeded(): { seeded: number } {
 
 /* ---------- 校验 ---------- */
 const META_KEYS = ['id', 'name'];
-const DEFAULT_KEYS = ['displayName', 'installDirHint', 'webUrl'];
+const DEFAULT_KEYS = ['displayName', 'installDirHint', 'webUrl', 'logDir'];
 const ACTION_SLOTS = ['start', 'stop', 'restart'];
 const RUNTIME_FORBIDDEN = ['st', 'status', 'pid', 'uptime', 'groupId', 'collapsed', '_tk', 'owner', 'ownerPid', 'jobId'];
 
@@ -146,7 +146,7 @@ function expand(str: string, ctx: Record<string, string>): string {
   return str.replace(/\$\{(\w+)\}/g, (m, key) => ctx[key] ?? m);
 }
 
-export function instantiate(t: Template, installDir: string, displayName?: string, port?: number, webUrl?: string | null): ServiceDefinition {
+export function instantiate(t: Template, installDir: string, displayName?: string, port?: number, webUrl?: string | null, logDir?: string | null): ServiceDefinition {
   const dir = normalizePath(installDir || t.defaults.installDirHint);
   const p = port ?? t.probe.port;
   const ctx: Record<string, string> = { installDir: dir, port: String(p) };
@@ -181,6 +181,7 @@ export function instantiate(t: Template, installDir: string, displayName?: strin
     port: p,
     webUrl: webUrl !== undefined ? webUrl : (t.defaults.webUrl ?? null),
     dir,
+    logDir: logDir ?? t.defaults.logDir ?? null,
     template: t.meta.id,
     cfg
   };

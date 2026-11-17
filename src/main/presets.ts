@@ -27,6 +27,7 @@ function j(...parts: string[]): string {
 interface PresetArgs {
   id: string; name: string; displayName: string; installDirHint: string;
   webUrl?: string | null; port: number;
+  logDir?: string | null;
   startCmd: string; startArgs?: string[]; timeoutMs?: number;
   stop?: { type: 'exec'; command: string; args: string[]; timeoutMs: number } | null;
 }
@@ -36,7 +37,7 @@ function mk(p: PresetArgs): Template {
     schemaVersion: 1,
     kind: 'service-template',
     meta: { id: p.id, name: p.name },
-    defaults: { displayName: p.displayName, installDirHint: p.installDirHint, webUrl: p.webUrl ?? null },
+    defaults: { displayName: p.displayName, installDirHint: p.installDirHint, webUrl: p.webUrl ?? null, logDir: p.logDir ?? null },
     probe: { port: p.port },
     actions: {
       start: { type: 'exec', command: p.startCmd, args: p.startArgs ?? [], timeoutMs: p.timeoutMs ?? 15000 },
@@ -57,6 +58,7 @@ export function buildPresets(): Template[] {
     mk({
       id: 'redis', name: 'Redis', displayName: 'Redis', installDirHint: H('redis'),
       port: 6379,
+      logDir: '${installDir}/logs',
       startCmd: j('${installDir}', exe('redis-server')),
       startArgs: IS_WIN ? ['${installDir}/redis.windows.conf'] : ['${installDir}/redis.conf'],
       stop: { type: 'exec', command: j('${installDir}', exe('redis-cli')), args: ['-p', '${port}', 'shutdown'], timeoutMs: 8000 }
@@ -64,6 +66,7 @@ export function buildPresets(): Template[] {
     mk({
       id: 'mysql', name: 'MySQL', displayName: 'MySQL', installDirHint: H('mysql'),
       port: 3306,
+      logDir: '${installDir}/data',
       startCmd: j('${installDir}', 'bin', exe('mysqld')),
       startArgs: ['--defaults-file=${installDir}/my.ini'],
       stop: { type: 'exec', command: j('${installDir}', 'bin', exe('mysqladmin')), args: ['-u', 'root', 'shutdown'], timeoutMs: 10000 }
@@ -71,6 +74,7 @@ export function buildPresets(): Template[] {
     mk({
       id: 'postgresql', name: 'PostgreSQL', displayName: 'PostgreSQL', installDirHint: H('pgsql'),
       port: 5432,
+      logDir: '${installDir}/data',
       startCmd: j('${installDir}', 'bin', exe('pg_ctl')),
       startArgs: ['-D', '${installDir}/data', '-l', '${installDir}/pg.log', 'start'],
       stop: { type: 'exec', command: j('${installDir}', 'bin', exe('pg_ctl')), args: ['-D', '${installDir}/data', 'stop', '-m', 'fast'], timeoutMs: 10000 }
@@ -78,33 +82,39 @@ export function buildPresets(): Template[] {
     mk({
       id: 'elasticsearch', name: 'Elasticsearch', displayName: 'Elasticsearch', installDirHint: H('elk/elasticsearch'),
       port: 9200, webUrl: 'http://localhost:9200',
+      logDir: '${installDir}/logs',
       startCmd: script('elasticsearch', 'elasticsearch'), timeoutMs: 60000
     }),
     mk({
       id: 'logstash', name: 'Logstash', displayName: 'Logstash', installDirHint: H('elk/logstash'),
       port: 9600,
+      logDir: '${installDir}/logs',
       startCmd: script('logstash', 'logstash'),
       startArgs: ['-f', '${installDir}/config/logstash.conf'], timeoutMs: 60000
     }),
     mk({
       id: 'kibana', name: 'Kibana', displayName: 'Kibana', installDirHint: H('elk/kibana'),
       port: 5601, webUrl: 'http://localhost:5601',
+      logDir: '${installDir}/logs',
       startCmd: script('kibana', 'kibana'), timeoutMs: 60000
     }),
     mk({
       id: 'rocketmq-nameserver', name: 'RocketMQ NameServer', displayName: 'RocketMQ NameServer', installDirHint: H('rocketmq'),
       port: 9876,
+      logDir: '${installDir}/logs',
       startCmd: script('mqnamesrv', 'mqnamesrv'), timeoutMs: 30000
     }),
     mk({
       id: 'rocketmq-broker', name: 'RocketMQ Broker', displayName: 'RocketMQ Broker', installDirHint: H('rocketmq'),
       port: 10911,
+      logDir: '${installDir}/logs',
       startCmd: script('mqbroker', 'mqbroker'),
       startArgs: ['-n', '127.0.0.1:9876'], timeoutMs: 30000
     }),
     mk({
       id: 'minio', name: 'MinIO', displayName: 'MinIO', installDirHint: H('minio'),
       port: 9000, webUrl: 'http://localhost:9001',
+      logDir: '${installDir}/logs',
       startCmd: j('${installDir}', exe('minio')),
       startArgs: ['server', '${installDir}/data', '--console-address', ':9001']
     })

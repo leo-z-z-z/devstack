@@ -39,6 +39,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
   const [templates, setTemplates] = useState<TemplateScanItem[]>([]);
   const [name, setName] = useState(service?.name ?? '');
   const [dir, setDir] = useState(service?.dir ?? '');
+  const [logDir, setLogDir] = useState(service?.logDir ?? '');
   const [port, setPort] = useState(String(service?.port ?? ''));
   const [url, setUrl] = useState(service?.webUrl ?? '');
   const [templateId, setTemplateId] = useState(service?.template ?? '');
@@ -68,6 +69,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
   const resetForm = () => {
     setName('');
     setDir('');
+    setLogDir('');
     setPort('');
     setUrl('');
     setActs(blankActs());
@@ -85,6 +87,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
     setTemplateId(tid);
     setName(tpl.raw.defaults.displayName || tpl.raw.meta.name);
     setDir(tpl.raw.defaults.installDirHint || '');
+    setLogDir(tpl.raw.defaults.logDir ?? '');
     setPort(String(tpl.raw.probe.port));
     setUrl(tpl.raw.defaults.webUrl ?? '');
     setActs({
@@ -119,6 +122,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
       port: parseInt(port, 10) || 0,
       webUrl: url.trim() || null,
       dir: dir.trim(),
+      logDir: logDir.trim() || undefined,
       template: templateId || undefined,
       cfg: {
         acts: {
@@ -144,7 +148,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
   const onSaveAsTemplate = async () => {
     if (tplSaving) return;
     const built = buildTemplateFromForm({
-      name, dir, port, url, acts
+      name, dir, logDir, port, url, acts
     }, templates.map(x => x.id));
     if (!built.ok) { ui.toast(built.error); return; }
     setTplSaving(true);
@@ -167,7 +171,7 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
     if (tplSaving) return;
     if (!sourceTpl) { ui.toast('当前没有来源模板，请先「保存为新模板」'); return; }
     const built = buildTemplateFromForm({
-      name, dir, port, url, acts
+      name, dir, logDir, port, url, acts
     }, templates.map(x => x.id), templateId);
     if (!built.ok) { ui.toast(built.error); return; }
     setPendingOverwrite({ id: built.id, file: built.file, text: JSON.stringify(built.template, null, 2) + '\n' });
@@ -285,6 +289,10 @@ export function ServiceEditor({ service }: { service: ServiceDefinition | null }
             <label className="flabel">{t('探测端口')}<span className="reqstar" title={t('必填')}>*</span></label>
             <input value={port} onChange={e => setPort(e.target.value)} placeholder="5601" title={t('状态探测与端口占用判定用的唯一参数')} />
           </div>
+        </div>
+        <div className="field">
+          <label className="flabel">{t('日志目录')}<span className="optnote">{t('(可选)')}</span><i className="qmark" title={t('该服务运行日志文件所在的目录；留空则使用软件默认日志目录')}>?</i></label>
+          <input value={logDir} onChange={e => setLogDir(e.target.value)} placeholder={t('D:/logs/kibana 或 C:/dev/app/logs')} title={t('该服务运行日志文件所在的目录；留空则使用软件默认日志目录')} />
         </div>
         <div className="field">
           <label className="flabel">{t('浏览器地址')}<span className="optnote">{t('(可选)')}</span><i className="qmark" title={t('点击端口时打开的地址；留空默认 http://127.0.0.1:端口')}>?</i></label>

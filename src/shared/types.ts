@@ -39,6 +39,8 @@ export interface ServiceDefinition {
   webPort?: number;
   webUrl?: string | null;
   dir: string;
+  /** 服务运行日志目录（可选）：用户自行指定，用于打开查看该服务的日志文件 */
+  logDir?: string | null;
   /** 来源模板溯源（元信息，不回读模板） */
   template?: string;
   cfg: ServiceConfig;
@@ -123,6 +125,8 @@ export interface Template {
     displayName: string;
     installDirHint: string;
     webUrl?: string | null;
+    /** 默认日志目录（可选）：实例化服务时作为 logDir 的初始值 */
+    logDir?: string | null;
   };
   probe: { port: number };
   actions: {

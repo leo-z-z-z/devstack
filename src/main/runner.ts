@@ -7,6 +7,7 @@
  * ============================================================ */
 import { spawn, ChildProcess, execSync } from 'node:child_process';
 import path from 'node:path';
+import { logs } from './logs';
 import { ActionSpec } from '../shared/types';
 
 const IS_WIN = process.platform === 'win32';
@@ -68,6 +69,18 @@ export function execAction(key: string, action: ActionSpec, cwd: string, onExit?
 
   const h: Handle = { pid: child.pid ?? 0, kill: () => killHandle(key), child };
   handles.set(key, h);
+
+  // P0：捕获子进程 stdout/stderr，写入日志系统，避免输出被丢弃
+  child.stdout?.on('data', (buf) => {
+    buf.toString('utf8').split(/\r?\n/).forEach((line: string) => {
+      if (line) logs.push(key, 'i', 'stdout', line);
+    });
+  });
+  child.stderr?.on('data', (buf) => {
+    buf.toString('utf8').split(/\r?\n/).forEach((line: string) => {
+      if (line) logs.push(key, 'w', 'stderr', line);
+    });
+  });
 
   // 修订 57：spawn 失败原因不再被静默吞掉。
   // 典型场景：命令里残留未展开的 ${installDir} → Windows 找不到该路径 → ENOENT。

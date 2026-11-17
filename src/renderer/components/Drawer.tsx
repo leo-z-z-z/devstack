@@ -33,7 +33,15 @@ export function Drawer(): JSX.Element {
   if (!drawer.open) return <></>;
 
   return (
-    <div className={'drawer' + (drawer.open ? ' on' : '') + (drawer.wide ? ' wide' : '')}>
+    <>
+      {/* 点击遮罩层关闭抽屉 */}
+      <div
+        className="drawer-backdrop"
+        onClick={closeDrawer}
+      />
+      <div
+        className={'drawer' + (drawer.open ? ' on' : '') + (drawer.wide ? ' wide' : '')}
+      >
       <div className="drawerhead">
         <h3>{t(drawer.title)}</h3>
         <span className="chip">{t(drawer.chip)}</span>
@@ -76,6 +84,7 @@ export function Drawer(): JSX.Element {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

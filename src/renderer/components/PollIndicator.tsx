@@ -26,6 +26,8 @@ export function PollIndicator({ poll, running }: { poll: PollStatus; running: nu
   const label = pollLabel(poll, running, t, trN);
   const aria = label + ' · ' + t('自动探测已启动与已停止的组件；点击可全量刷新所有可操作服务') +
     (last ? ' · ' + t('上次刷新 {time}').replace('{time}', last) : '');
+  // tooltip 仅保核心状态，空闲时追加可点击暗示
+  const title = busy || standby ? label : label + ' · ' + t('点击全量刷新');
 
   return (
     <button
@@ -38,6 +40,7 @@ export function PollIndicator({ poll, running }: { poll: PollStatus; running: nu
       data-cycles={poll.cycles}
       data-standby={standby ? '1' : '0'}
       onClick={() => void api.refreshStatus()}
+      title={title}
       aria-label={aria}
     >
       <svg className="ekg" width="12" height="12" viewBox="0 0 16 16" aria-hidden>

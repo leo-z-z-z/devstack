@@ -108,7 +108,10 @@ app.whenReady().then(async () => {
   initSchedule({
     probe,
     openUrl: (url) => void shell.openExternal(url),
-    openDir: (dir) => void shell.openPath(dir)
+    openDir: async (dir) => {
+      if (!dir || !dir.trim()) return;
+      try { await shell.openPath(dir.trim()); } catch { /* 忽略，上层已有 toast 反馈 */ }
+    }
   });
 
   registerIpc();

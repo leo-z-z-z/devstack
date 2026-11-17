@@ -93,7 +93,16 @@ export async function doStart(svc: ServiceDefinition): Promise<void> {
   } else {
     // 修订 57：spawn 失败（如命令路径不存在 → ENOENT）立刻写入 actionNote，
     // 用户直接看到「命令不存在」而不是干等一个「启动超时」。
-    const h = execAction(svc.id, act, svc.dir, () => { /* 退出由 probe 收敛 */ }, (err) => {
+    const h = execAction(svc.id, act, svc.dir, (code) => {
+      // 进程已退出：若非正常退出（code !== 0），立即写入失败，不必等 probe 超时，
+      // 避免用户只看到模糊的「启动超时」而无法判断真实原因。
+      if (store.tkOf(svc.id) !== tk) return;
+      if (code !== 0) {
+        store.patchState(svc.id, { st: 'unknown', actionNote: '启动失败：进程异常退出（退出码 ' + code + '）' });
+        store.activity('w', 'WARN', svc.name + ' 启动失败：进程异常退出（退出码 ' + code + '）');
+      }
+      /* 正常退出由 probe 收敛 */
+    }, (err) => {
       if (store.tkOf(svc.id) !== tk) return;
       store.patchState(svc.id, { st: 'unknown', actionNote: '启动失败：' + err });
       store.activity('w', 'WARN', svc.name + ' 启动失败：' + err);
