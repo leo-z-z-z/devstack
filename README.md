@@ -61,15 +61,20 @@ devstack 是一个面向本地中间件与服务的桌面命令面板，支持�
 - **二次确认**：全部启动 / 全部停止 / 删除服务均需确认，弹窗写明影响范围与执行顺序
 - **国际化**：9 种语言（简体中文 / 繁體中文 / English / 日本語 / 한국어 / Français / Español / Deutsch / Português），顶栏切换即时生效
 
+## 应用截图
+
+![应用截图1](./assets/1.png)
+![应用截图2](./assets/2.png)
+
 ## 技术栈
 
-| 层 | 技术 | 用途 |
-|----|------|------|
-| 主进程 | Electron (Node.js) | 进程托管、端口探测、配置读写、日志 tail |
-| 渲染层 | React 18 + TypeScript | 界面与状态订阅，Vite 构建 |
-| 打包 | Electron-builder | MSI / NSIS / dmg / AppImage 分发包 |
-| 配置 | `services.yaml` | 服务定义、分组、顺序、设置 |
-| 模板 | `presets/*.json` | 单组件模板，6 顶层键 |
+| 层   | 技术                    | 用途                              |
+| --- | --------------------- | ------------------------------- |
+| 主进程 | Electron (Node.js)    | 进程托管、端口探测、配置读写、日志 tail          |
+| 渲染层 | React 18 + TypeScript | 界面与状态订阅，Vite 构建                 |
+| 打包  | Electron-builder      | MSI / NSIS / dmg / AppImage 分发包 |
+| 配置  | `services.yaml`       | 服务定义、分组、顺序、设置                   |
+| 模板  | `presets/*.json`      | 单组件模板，6 顶层键                     |
 
 ## 快速开始
 
