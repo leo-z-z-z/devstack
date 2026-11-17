@@ -63,7 +63,7 @@ The software does not download, unzip, or install any middleware; all components
 
 ## Application Screenshots
 
-![Application Screenshot 1](./assets/1.png)
+![Application Screenshot 1](../assets/1.png)
 ![Application Screenshot 2](../assets/2.png)
 
 ## Tech Stack
