@@ -23,23 +23,23 @@
 </p>
 
 <p align="center">
-  <strong>简体中文</strong>
+  <a href="locales/zh-CN/README.md">简体中文</a>
   ｜
-  <a href="zh-TW/README.md">繁體中文</a>
+  <a href="locales/zh-TW/README.md">繁體中文</a>
   ｜
-  <a href="en/README.md">English</a>
+  <a href="locales/en/README.md">English</a>
   ｜
-  <a href="ja/README.md">日本語</a>
+  <a href="locales/ja/README.md">日本語</a>
   ｜
-  <a href="ko/README.md">한국어</a>
+  <a href="locales/ko/README.md">한국어</a>
   ｜
-  <a href="fr/README.md">Français</a>
+  <a href="locales/fr/README.md">Français</a>
   ｜
-  <a href="es/README.md">Español</a>
+  <a href="locales/es/README.md">Español</a>
   ｜
-  <a href="de/README.md">Deutsch</a>
+  <a href="locales/de/README.md">Deutsch</a>
   ｜
-  <a href="pt/README.md">Português</a>
+  <a href="locales/pt/README.md">Português</a>
 </p>
 
 ## 关于
